@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-7').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H2 - M011</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('introActivity1')">
+        <div class="title">
+            <span>🚀 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Continuar con la creación de una app en Glide</div>
+    </div>
+    <div id="introActivity1" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 1 "Bienvenida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hola, Genios. Hoy vamos a continuar creando una app en Glide, usando funciones avanzadas para hacerla más dinámica y útil. ¡Empecemos!"
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 2 "¿Cómo Están?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Antes de sumergirnos en Glide, quiero saber cómo se sienten hoy. Si están emocionados por el reto de crear su propia app, levanten una mano. Si prefieren explorar tranquilos, levanten ambas manos."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 3 "Gracias por Asistir"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Como siempre, juntemos nuestras manos y hagamos una reverencia para agradecer el estar aquí. Gracias por asistir."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 4 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hoy tenemos tres objetivos importantes: 1. Conocer nuevos tipos de datos en Glide. 2. Conocer nuevas formas de organizar datos en Glide. 3. Diseñar los datos avanzados para nuestra nueva app."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('introActivity2')">
+        <div class="title">
+            <span>💡 Actividad 2: Innovación del Día (3 pasos)</span>
+            <span>⏰ Tiempo: 4 minutos</span>
+        </div>
+        <div class="subtitle">Introducción a Makerpad y su aplicación para el desarrollo No-Code</div>
+    </div>
+    <div id="introActivity2" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 5 "Innovación del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hoy les quiero mostrar Makerpad, una plataforma donde los creadores pueden aprender a desarrollar soluciones avanzadas sin necesidad de escribir código. Es una comunidad llena de recursos que les puede inspirar a llevar sus ideas a la práctica."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 6 "Demostración de Makerpad"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Vamos a ver un ejemplo de cómo Makerpad puede ayudarnos a aprender nuevas herramientas y a desarrollar aplicaciones sin código. Aquí se muestran algunos ejemplos de proyectos que se han llevado a cabo usando Glide y otras plataformas No-Code."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 7 "Reflexión sobre Makerpad"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Makerpad no solo es un lugar donde aprenden sobre No-Code, sino que también les conecta con una comunidad de creadores que comparten sus ideas y soluciones. Es un espacio donde pueden desarrollar sus habilidades y explorar nuevas maneras de resolver problemas con tecnología."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (18 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brainGym')">
+        <div class="title">
+            <span>🧠 Actividad 3: Brain Gym (18 pasos)</span>
+            <span>⏰ Tiempo: 18 minutos</span>
+        </div>
+        <div class="subtitle">Explorar funciones avanzadas de Glide: columnas computadas y organización de datos</div>
+    </div>
+    <div id="brainGym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 8 "Introducción a las Columnas Computadas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hoy vamos a profundizar en las funciones avanzadas de Glide, específicamente en las columnas computadas y cómo organizar nuestros datos de manera eficiente. Glide nos permite crear aplicaciones cada vez más complejas, y con esa complejidad, el diseño y la estructura de la base de datos se vuelven cruciales para mantener la app funcional y fácil de gestionar. Hoy exploraremos cómo estructurar mejor los datos y cómo utilizar estas nuevas herramientas para que sus apps sean más poderosas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 9 "Expansión de la App To-Do"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "En nuestra primera misión, construimos una lista de tareas simple en Glide. Hoy vamos a expandir esa app, creando una lista de tareas para la familia o el equipo, pero no se limiten a pensar que estas funciones solo sirven para apps de listas. Las herramientas que aprenderán hoy pueden aplicarse a cualquier proyecto: desde una app de guía de audio para un museo, hasta un menú de restaurante, o una herramienta de gestión de finanzas. El dominio de los datos es la clave para crear apps exitosas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 10 "Columnas Básicas vs Columnas Computadas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Las columnas básicas contienen datos normales, como los de una hoja de cálculo. Cualquier cambio que hagamos en ellas se sincroniza entre el editor de datos de Glide y la fuente de datos original. Las columnas computadas, por otro lado, transforman esos datos básicos de maneras nuevas y poderosas. Hoy vamos a centrarnos en los 6 tipos más comunes de columnas computadas, que pueden explorar en profundidad por su cuenta más adelante."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 11 "Columna de Relación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La primera columna computada que vamos a ver es la columna de Relación. Con esta columna podemos crear relaciones entre diferentes tablas o datos, lo que nos permite vincular elementos entre sí. Por ejemplo, podríamos permitir que las tareas pertenecieran a una app, o mostrar empleados dentro de departamentos. Las relaciones nos ayudan a mapear datos de manera más eficiente y se usan mucho en aplicaciones complejas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 12 "Columna de Búsqueda"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La columna de Búsqueda utiliza una Relación para traer los valores de otra columna. Esto nos permite, por ejemplo, obtener el número de teléfono del jefe de un miembro del equipo o el nombre de la app a la que pertenece una tarea. La columna de Búsqueda facilita la recuperación de información de manera rápida y precisa dentro de nuestra app."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 13 "Columna de Plantilla"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La columna de Plantilla nos permite crear texto dinámico a partir de datos en otras columnas. Por ejemplo, podríamos mostrar 'Bienvenido NOMBRE, hoy es DÍA', reemplazando NOMBRE por el nombre del usuario y DÍA por el día actual. Es una forma poderosa de personalizar la experiencia del usuario dentro de la app, haciendo que se sienta única y adaptada a cada persona."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (1 minuto): Proyectar Diapositiva 14 "Columna de Rollup"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La columna de Rollup nos ayuda a realizar cálculos en columnas completas o relaciones. El cálculo más simple es Contar, pero dependiendo de los datos, podemos hacer otras operaciones como Suma, Promedio, Máximo/Mínimo, y mucho más. Esta columna es útil cuando necesitamos agrupar datos y obtener resultados de análisis."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (1 minuto): Proyectar Diapositiva 15 "Columna de Matemáticas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La columna de Matemáticas realiza cálculos instantáneos en los datos de tu tabla. Puedes usar funciones aritméticas básicas o fórmulas más complejas. El resultado se puede utilizar en diferentes componentes dentro de tu app y ver el resultado en tiempo real. Es una columna muy poderosa cuando se necesitan operaciones personalizadas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (1 minuto): Proyectar Diapositiva 16 "Columna If → Then → Else"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La columna If → Then → Else nos permite crear valores basados en condiciones específicas. Por ejemplo, podemos hacer que, si la edad de un usuario es mayor de 18, se muestre un valor; o si una tarea está vencida, aparezca un mensaje de 'Pendiente'. Esta columna es clave para hacer que las apps respondan a diferentes escenarios según los datos."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (1.5 minutos): Proyectar Diapositiva 17 "Columna If → Then → Else y Organización de Datos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "No se asusten con todas estas columnas que acabamos de ver. Vamos a usar todas ellas para mejorar las funciones de nuestra app familiar de tareas. Hoy, crearemos una función de perfil faltante usando la columna If → Then → Else, y además aprenderemos una nueva manera de ordenar los datos para organizarlos mejor. ¡Esto hará que nuestra app sea mucho más dinámica!"
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 11 (2 minutos): Proyectar Diapositiva 18 "Gestión de Datos para Imágenes de Perfil"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "¿Recuerdan que mencioné que íbamos a aprender una nueva forma de gestionar los datos? En la app anterior probablemente usaron una columna para el nombre del usuario, otra para la imagen, otra para la edad, y tal vez otra para el apodo. Pero, ¿y si les dijera que una columna no siempre es suficiente? Piensen en lo que sucede en Facebook o Instagram cuando un usuario no tiene foto de perfil: se le asigna una predeterminada, y esto no ocurre por arte de magia, sino por diseño de datos. Hoy vamos a crear una función similar."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 12 (1.5 minutos): Proyectar Diapositiva 19 "Tablas Predeterminadas en Glide"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Cuando creamos una app desde cero en Glide, los datos predeterminados consisten en solo dos tablas: una vacía y una tabla de usuarios. Esta tabla de usuarios es especial, porque contiene los datos de los usuarios reales que inician sesión en la app, como nombre, email, foto y rol. ¿Qué pasa si un usuario no tiene foto? Bueno, no se muestra nada. Pero aquí es donde entra la magia: hoy vamos a cambiar eso."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 13 (2 minutos): Proyectar Diapositiva 20 "Categorías de Datos en Glide"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Todo lo que vamos a hacer hoy estará relacionado con las fotos de perfil de los usuarios, por lo que necesitamos una manera eficiente de ordenar estos datos. Aquí es donde entra la nueva función que les voy a enseñar. Podemos crear grupos de datos añadiendo el tema o categoría al que pertenecen los datos, usando una barra inclinada ('/'). Para nuestra función de fotos de perfil, trabajaremos con tres columnas: 'uploaded photo', 'default photo', y 'displayed photo'. Todas estas dentro de la categoría 'Profile Pic'. ¿Ven cómo Glide coloca automáticamente ese nombre de categoría sobre las fotos? Esto no solo nos ayuda a ordenar la información mejor, sino que será útil al buscar datos en otros lugares."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 14 (1 minuto): Proyectar Diapositiva 21 "Nombres Claros y Específicos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Es muy importante usar nombres claros y específicos para las columnas. Nombres como 'uploaded photo' nos dicen que es la imagen que ha subido el usuario, mientras que 'displayed photo' nos indica qué imagen será la que se muestre en la app. Usar nombres precisos asegura que siempre podamos saber qué datos estamos gestionando sin confusiones."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 15 (1.5 minutos): Proyectar Diapositiva 22 "Creando la Columna de Foto Predeterminada"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Vamos a crear la columna de 'default photo'. Hacemos clic derecho en la columna 'Uploaded Photo' y seleccionamos 'Add column right'. Aquí podemos usar una columna de imagen básica y subir una imagen predeterminada, pero vamos a usar una función genial llamada Hero Icons. Hero Icons es un sitio donde pueden encontrar íconos minimalistas en alta resolución. Les recomiendo revisar en algún momento el catálogo de íconos de Hero Icons. Afortunadamente, Glide tiene estos íconos integrados, así que vamos a usar uno llamado 'user' como nuestra foto predeterminada."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 16 (2 minutos): Proyectar Diapositiva 23 "Columna If → Then → Else en Acción"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Finalmente, vamos a implementar nuestra función genial usando la columna If → Then → Else. Creamos una columna a la derecha de 'Default Photo', también dentro de la categoría 'Profile Pic', y la llamaremos 'Displayed Photo'. Usaremos la columna If → Then → Else para configurar la lógica de nuestra app. Seleccionamos los datos de 'Uploaded Photo' y configuramos la condición: si 'Uploaded Photo' está vacía, entonces mostramos la 'Default Photo'. Si no está vacía, mostramos la foto que subió el usuario."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 17 (1 minuto): Proyectar Diapositiva 24 "Revisión de Funciones Avanzadas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Ahora deberían poder ver cómo los datos interactúan entre sí. Usando estas columnas, podemos organizar los datos de manera eficiente y hacer que trabajen juntas. Más adelante, revisaremos otras columnas como las de Matemáticas, Rollup y Relación, pero por ahora seguiremos experimentando con la columna If → Then → Else y sus usos en nuestra app."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 18 (0.5 minutos): Proyectar Diapositiva 25 "Revisión de Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hemos cubierto bastante información importante hasta ahora, y ya hemos avanzado mucho en nuestra misión de hoy. Vamos a hacer una pausa rápida para revisar lo que hemos logrado. Hoy hemos alcanzado dos de nuestros objetivos: 1. Conocer nuevos tipos de datos en Glide. 2. Conocer nuevas formas de organizar datos en Glide."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (3 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('stateChange')">
+        <div class="title">
+            <span>🧘 Actividad 4: State Change (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Relajarnos y recargar energías con la Meditación Flash</div>
+    </div>
+    <div id="stateChange" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 26 "Instrucciones para la Meditación Flash"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, ahora vamos a hacer una breve pausa para relajarnos y recargar energía. Siéntense cómodamente, cierren los ojos y concéntrense en su respiración. Vamos a dedicar 1 minuto solo a respirar profundamente. Inhalen y exhalen tranquilamente, enfocándose únicamente en su respiración. Vamos a comenzar."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 27 "Cronómetro - 1 Minuto"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 28 "Beneficios de la Meditación Flash"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Esta pequeña pausa de meditación nos ayuda a calmarnos y a tener más claridad mental. La próxima vez que sientan que necesitan un momento para relajarse, pueden tomarse un minuto como este para concentrarse en su respiración y recobrar su enfoque."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (4 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('teamGnius')">
+        <div class="title">
+            <span>👥 Actividad 5: Team Gnius (4 pasos)</span>
+            <span>⏰ Tiempo: 4.5 minutos</span>
+        </div>
+        <div class="subtitle">Formación de equipos y recogida de Magic Tablets</div>
+    </div>
+    <div id="teamGnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 29 "Formación de Equipos de 4"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, para esta actividad van a formar equipos de 4 personas, pero con una condición importante: no pueden trabajar con las mismas personas con las que diseñaron la app anterior. Tienen que encontrar compañeros diferentes. Les voy a dar 2 minutos para formar sus equipos."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 30 "Cronómetro - 2 Minutos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 31 "Recoger Magic Tablets"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Ahora que ya tienen sus equipos, necesito que un representante de cada equipo pase al frente a recoger sus Magic Tablets. Les voy a dar 1 minuto para esto."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 32 "Cronómetro - 1 Minuto"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 6 (7 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🏆 Actividad 6: Challenge (7 pasos)</span>
+            <span>⏰ Tiempo: 12 minutos</span>
+        </div>
+        <div class="subtitle">Diseñar los datos para una aplicación de seguimiento de tareas</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 33 "Challenge"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, el reto de hoy será diseñar los datos para una aplicación de seguimiento de tareas. Pueden elegir si lo quieren hacer para una familia o para un equipo de trabajo. Lo importante es que sea una app de To-Do's para varias personas. Tienen que pensar en los tipos de datos que necesitan, no solo para saber si una tarea está completada o no, sino también en cosas como las personas asignadas, fechas de entrega, prioridades y notas. También deben considerar cómo categorizar estos datos, como lo aprendimos hoy en el Brain Gym, para que su app sea una gran herramienta de productividad."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 34 "Planificación del Dashboard"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Es importante que piensen en las métricas, porque dentro de un par de clases aprenderemos a hacer un Dashboard que muestre un resumen con toda la información importante. Para eso, deben diseñar los datos de manera eficiente desde ahora. ¿Qué son las métricas? Son información que permiten medir cosas relevantes dentro de una aplicación; por ejemplo, pueden medir el porcentaje de tareas completadas y mostrarlo en una pantalla para que de una manera gráfica y sencilla, puedan saber cuán cerca están de lograr completar todos sus pendientes. Piensen en qué información querrían ver en su app y cómo organizarla de la mejor manera."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 35 "Estructura de Tablas en Glide"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Ya hicieron una app en Glide, así que saben que un buen punto de partida es pensar en tablas como pantallas. PERO, ésta vez vamos a ir más allá de eso, integrando información de varias tablas en ciertas pantallas, así que el enfoque debe estar en pensar en toda la información que se va a necesitar, y finalmente organizarla de la manera más eficiente, incorporando el nuevo elemento que aprendimos hoy, las categorías o agrupaciones de columnas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (10 minutos): Proyectar Diapositiva 36 "Cronómetro - 10 Minutos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 37 "Toma una Foto"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, tomen una foto de su trabajo, porque la necesitaremos para la próxima clase. Así podrán continuar mejorando su app de seguimiento de tareas."
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 38 "Revisión de Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Hoy hemos completado los tres objetivos de nuestra misión: 1. Conocer nuevos tipos de datos en Glide. 2. Conocer nuevas formas de organizar datos en Glide. 3. Diseñar los datos avanzados para nuestra nueva app. ¡Gran trabajo, Genios!"
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (0.5 minutos): Proyectar Diapositiva 39 "You've Got Mon-e"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, gran trabajo en el reto de hoy. ¡Todos han ganado Mon-e por su esfuerzo y dedicación! Sigamos trabajando duro en nuestras apps."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easterEgg')">
+        <div class="title">
+            <span>🎉 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Momento de ver quién ha estado prestando atención</div>
+    </div>
+    <div id="easterEgg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 40 "Easter Egg - Pregunta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, es hora de ver quién ha estado prestando atención. La siguiente diapositiva tiene una pregunta sobre algo que discutimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Recuerden la dinámica: lean la pregunta y, si saben la respuesta, levanten la mano. Yo seleccionaré a 3 de ustedes. ¿Listos?"
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 41 "Pregunta del Easter Egg"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "La pregunta es: ¿Cuál es el nombre de la integración para íconos de Glide, la cual también es una página web donde pueden obtener íconos para sus proyectos de manera gratuita?"
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 42 "Respuesta Correcta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es 'Hero Icons'. ¡Muy bien, a los ganadores les toca Mon-e!"
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honorTheDojo')">
+        <div class="title">
+            <span>🏅 Actividad 8: Honor The Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 0.5 minutos</span>
+        </div>
+        <div class="subtitle">Finalizar la clase y dejar el espacio en orden</div>
+    </div>
+    <div id="honorTheDojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 43 "Honor the Dojo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                "Genios, antes de irnos, vamos a honrar nuestro espacio de trabajo. Por favor, asegúrense de que todo esté en orden y que el salón quede limpio. ¡Gracias por su esfuerzo hoy!"
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
